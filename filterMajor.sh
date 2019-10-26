@@ -76,3 +76,4 @@ do
 		fi
 	done < $patfile
 done < pattern.tmp
+rm pattern.tmp
