@@ -5,6 +5,10 @@
 # XXXr highest level of resistance to PI
 # XXXp potential contraindication in the use of PI
 
+# (https://hivdb.stanford.edu/pages/3DStructures/pr.html)
+# 11-09-2019
+# Binding site || Cleft residues: 8,23,25-27,29,30,32,47,48,50,82,84
+
 # D30N    NFVr
 # V32I    ATV DRVp FPVr IDVp LPVp TPV
 # L33F    ATV DRV FPVp LPV NFV TPV
