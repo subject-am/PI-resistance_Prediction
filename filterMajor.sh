@@ -35,7 +35,7 @@
 # Files to filter
 ls *_pattern > pattern.tmp
 
-# Filter resistant mutations
+#### Major Mutations ####
 while read patfile
 do
 	while read patmut
@@ -56,4 +56,19 @@ do
 		fi
 	done < $patfile
 done < pattern.tmp
-rm pattern.tmp
+
+#### Major Mutations in the Binding Site ####
+while read patfile
+do
+	while read patmut
+	do
+		if [[ $patmut == D30N ]]; then echo $patmut >> ${patfile%%_pattern}_majorMutBS
+		elif [[ $patmut == V32I ]]; then echo $patmut >> ${patfile%%_pattern}_majorMutBS
+		elif [[ $patmut == I47[VA] ]]; then echo $patmut >> ${patfile%%_pattern}_majorMutBS
+		elif [[ $patmut == G48[VM] ]]; then echo $patmut >> ${patfile%%_pattern}_majorMutBS
+		elif [[ $patmut == I50[LV] ]]; then echo $patmut >> ${patfile%%_pattern}_majorMutBS
+		elif [[ $patmut == V82[AFSTL] ]]; then echo $patmut >> ${patfile%%_pattern}_majorMutBS
+		elif [[ $patmut == I84V ]]; then echo $patmut >> ${patfile%%_pattern}_majorMutBS
+		fi
+	done < $patfile
+done < pattern.tmp
