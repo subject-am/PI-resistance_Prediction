@@ -1,6 +1,14 @@
-EXPDTA    THEORETICAL MODEL, MODELLER 9.19 2019/09/09 19:14:32
+EXPDTA    THEORETICAL MODEL, MODELLER 9.19 2019/07/31 00:21:24
 REMARK   6 MODELLER OBJECTIVE FUNCTION:         8.6023
-REMARK   6 MODELLER BEST TEMPLATE % SEQ ID:  99.495
+REMARK   6 MODELLER BEST TEMPLATE % SEQ ID:  99.528
+REMARK   6 MODELLER BLK RESIDUE    1:I
+REMARK   6 MODELLER BLK RESIDUE    5:I
+REMARK   6 MODELLER BLK RESIDUE    1:J
+REMARK   6 MODELLER BLK RESIDUE    5:J
+REMARK   6 MODELLER BLK RESIDUE 6001:A
+REMARK   6 MODELLER BLK RESIDUE 5001:A
+REMARK   6 MODELLER BLK RESIDUE 6002:B
+REMARK   6 MODELLER BLK RESIDUE 5002:B
 ATOM      1  N   PRO A   1       8.631 -13.723  87.469  1.00 15.32           N
 ATOM      2  CA  PRO A   1       8.135 -13.551  86.084  1.00 14.54           C
 ATOM      3  CD  PRO A   1       8.328 -12.438  88.193  1.00 23.41           C
@@ -1523,4 +1531,66 @@ ATOM   1519  C   PHE B  99      11.943 -13.845  89.299  1.00 12.81           C
 ATOM   1520  O   PHE B  99      11.161 -14.322  88.460  1.00 14.27           O
 ATOM   1521  OXT PHE B  99      11.954 -14.165  90.501  1.00 15.57           O
 TER    1522      PHE B  99
+ATOM   1546  N   PHE I   2      16.863   7.191  83.951  1.00 12.23           N
+ATOM   1547  CA  PHE I   2      18.134   7.312  84.620  1.00 11.05           C
+ATOM   1548  CB  PHE I   2      19.151   8.048  83.695  1.00 12.59           C
+ATOM   1549  CG  PHE I   2      20.478   8.260  84.357  1.00 12.20           C
+ATOM   1550  CD1 PHE I   2      20.933   9.523  84.739  1.00 13.75           C
+ATOM   1551  CD2 PHE I   2      21.301   7.203  84.617  1.00 13.44           C
+ATOM   1552  CE1 PHE I   2      22.136   9.669  85.339  1.00 14.34           C
+ATOM   1553  CE2 PHE I   2      22.534   7.340  85.233  1.00 14.03           C
+ATOM   1554  CZ  PHE I   2      22.972   8.584  85.607  1.00 13.72           C
+ATOM   1555  C   PHE I   2      17.998   8.090  85.924  1.00 10.30           C
+ATOM   1556  O   PHE I   2      17.336   9.134  85.979  1.00 12.20           O
+ATOM   1557  N   GLU I   3      18.661   7.599  86.959  1.00 10.51           N
+ATOM   1558  CA  GLU I   3      18.693   8.303  88.235  1.00  9.65           C
+ATOM   1559  CB  GLU I   3      17.490   7.945  89.096  1.00 10.51           C
+ATOM   1560  CG  GLU I   3      17.486   8.557  90.465  1.00 10.80           C
+ATOM   1561  CD  GLU I   3      18.267   7.791  91.508  1.00 10.20           C
+ATOM   1562  OE1 GLU I   3      18.696   8.433  92.525  1.00 11.25           O
+ATOM   1563  OE2 GLU I   3      18.613   6.615  91.274  1.00 10.95           O
+ATOM   1564  C   GLU I   3      20.031   7.940  88.908  1.00  9.70           C
+ATOM   1565  O   GLU I   3      20.484   6.774  88.894  1.00  9.65           O
+ATOM   1566  N   GLU I   4      20.551   8.915  89.661  1.00 10.05           N
+ATOM   1567  CA  GLU I   4      21.727   8.736  90.497  1.00 10.33           C
+ATOM   1568  CB  GLU I   4      23.014   8.858  89.668  1.00 11.71           C
+ATOM   1569  CG  GLU I   4      23.202  10.255  89.097  1.00 13.56           C
+ATOM   1570  CD  GLU I   4      24.419  10.434  88.213  1.00 15.84           C
+ATOM   1571  OE1 GLU I   4      24.440  11.461  87.452  1.00 21.10           O
+ATOM   1572  OE2 GLU I   4      25.321   9.524  88.200  1.00 15.80           O
+ATOM   1573  C   GLU I   4      21.742   9.779  91.605  1.00 10.87           C
+ATOM   1574  O   GLU I   4      21.170  10.850  91.433  1.00 11.91           O
+ATOM   1575  OXT GLU I   4      22.702   9.761  92.421  1.00  0.00           O
+TER    1576      GLU I   4
+ATOM   1601  N   PHE J   2       8.122 -10.251  68.661  1.00 17.33           N
+ATOM   1602  CA  PHE J   2       7.280  -9.056  68.559  1.00 17.49           C
+ATOM   1603  CB  PHE J   2       6.629  -8.894  67.231  0.54 16.07           C
+ATOM   1604  CG  PHE J   2       5.647  -9.942  66.753  0.54 21.52           C
+ATOM   1605  CD1 PHE J   2       4.346  -9.953  67.216  0.54 35.52           C
+ATOM   1606  CD2 PHE J   2       6.052 -10.908  65.834  0.54 18.19           C
+ATOM   1607  CE1 PHE J   2       3.434 -10.909  66.783  0.54 33.76           C
+ATOM   1608  CE2 PHE J   2       5.145 -11.863  65.401  0.54 31.57           C
+ATOM   1609  CZ  PHE J   2       3.844 -11.857  65.878  0.54 30.45           C
+ATOM   1610  C   PHE J   2       6.332  -8.967  69.735  1.00 16.46           C
+ATOM   1611  O   PHE J   2       6.334  -9.900  70.511  1.00 18.86           O
+ATOM   1612  N   GLU J   3       5.605  -7.840  69.894  1.00 19.12           N
+ATOM   1613  CA  GLU J   3       4.735  -7.509  71.033  1.00 16.92           C
+ATOM   1614  CB  GLU J   3       4.146  -6.137  70.908  1.00 20.62           C
+ATOM   1615  CG  GLU J   3       3.183  -5.812  69.793  1.00 24.13           C
+ATOM   1616  CD  GLU J   3       3.827  -5.472  68.474  1.00 27.44           C
+ATOM   1617  OE1 GLU J   3       3.023  -5.192  67.546  1.00 30.57           O
+ATOM   1618  OE2 GLU J   3       5.070  -5.598  68.290  1.00 21.67           O
+ATOM   1619  C   GLU J   3       3.663  -8.570  71.244  1.00 22.08           C
+ATOM   1620  O   GLU J   3       3.342  -9.223  70.242  1.00 27.08           O
+ATOM   1621  N   GLU J   4       3.169  -8.741  72.445  1.00 32.56           N
+ATOM   1622  CA  GLU J   4       2.134  -9.725  72.735  1.00 47.56           C
+ATOM   1623  CB  GLU J   4       2.139  -9.970  74.246  1.00 65.34           C
+ATOM   1624  CG  GLU J   4       3.504 -10.454  74.723  1.00 77.52           C
+ATOM   1625  CD  GLU J   4       4.216  -9.508  75.664  1.00 81.20           C
+ATOM   1626  OE1 GLU J   4       5.417  -9.767  75.917  1.00 59.12           O
+ATOM   1627  OE2 GLU J   4       3.605  -8.539  76.165  1.00 88.23           O
+ATOM   1628  C   GLU J   4       0.777  -9.307  72.213  1.00 52.35           C
+ATOM   1629  O   GLU J   4      -0.195 -10.068  72.243  1.00 44.05           O
+ATOM   1630  OXT GLU J   4      -0.196 -10.083  72.407  1.00  0.00           O
+TER    1631      GLU J   4
 END
