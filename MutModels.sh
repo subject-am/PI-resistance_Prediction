@@ -1,3 +1,5 @@
+#!/bin/bash
+
 while read fasta ; do echo P1P > ${fasta%%.fasta}_pattern ; done < consensus.log
 for pattern in $(ls *_pattern) ; do sh pattern-HIVp.sh 1NH0_ref.pdb $pattern ; done
 
