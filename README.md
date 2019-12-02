@@ -2,8 +2,9 @@
 ## Datasets
 PI_dataset
 
-        The complete dataset retrieved from HIVdb from Stanford (last accessed on 20190220 ; file: https://hivdb.stanford.edu/download/GenoPhenoDatasets/PI_DataSet.txt) sorted and edited to be read by script.
-        Fold-resistance to PI, according to in vitro assay.
+        The complete dataset retrieved from HIVdb from Stanford (last accessed on 20190220 ;
+        file: https://hivdb.stanford.edu/download/GenoPhenoDatasets/PI_DataSet.txt)
+        sorted and edited to be read by script. Fold-resistance to PI, according to in vitro assay.
 
 
 Separate_sets.sh
