@@ -59,10 +59,13 @@ nlinesSUS=$(wc -l ${dataset}-susceptible | awk '{print $1}')
 if [[ $nlinesSUS -eq 1 ]]; then rm ${dataset}-susceptible ; echo "No sequence is susceptible to all PI. Review script parameters for susceptibility." ; exit 0 ; fi
 sed -i '/^$/d' ${dataset}-susceptible ; echo "All sequences susceptible to DRV, FPV, ATV, IDV, LPV, NFV, SQV, and TPV are saved in "${dataset}-susceptible
 nlinesRES20=$(wc -l ${dataset}-res20 | awk '{print $1}')
-if [[ $nlinesRES20 -eq 1 ]]; then rm ${dataset}-res20 ; echo "No sequence is highly resistant to all PI. Review script parameters for susceptibility." ; exit 0 ; fi
+if [[ $nlinesRES20 -eq 1 ]]; then rm ${dataset}-res20 ; echo "No sequence is >20.0-fold resistant to all PI. Review script parameters for susceptibility." ; exit 0 ; fi
 sed -i '/^$/d' ${dataset}-res20 ; echo "All sequences highly resistant to DRV, FPV, ATV, IDV, LPV, NFV, SQV, and TPV are saved in "${dataset}-res20
 nlinesRES15=$(wc -l ${dataset}-res15 | awk '{print $1}')
-if [[ $nlinesRES15 -eq 1 ]]; then rm ${dataset}-res15 ; echo "No sequence is highly resistant to all PI. Review script parameters for susceptibility." ; exit 0 ; fi
+if [[ $nlinesRES15 -eq 1 ]]; then rm ${dataset}-res15 ; echo "No sequence is >15.0-fold resistant to all PI. Review script parameters for susceptibility." ; exit 0 ; fi
+sed -i '/^$/d' ${dataset}-res15 ; echo "All sequences highly resistant to DRV, FPV, ATV, IDV, LPV, NFV, SQV, and TPV are saved in "${dataset}-res15
+nlinesRES10=$(wc -l ${dataset}-res10 | awk '{print $1}')
+if [[ $nlinesRES10 -eq 1 ]]; then rm ${dataset}-res10 ; echo "No sequence is >10.0-fold resistant to all PI. Review script parameters for susceptibility." ; exit 0 ; fi
 sed -i '/^$/d' ${dataset}-res15 ; echo "All sequences highly resistant to DRV, FPV, ATV, IDV, LPV, NFV, SQV, and TPV are saved in "${dataset}-res15
 
 
