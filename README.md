@@ -62,7 +62,6 @@ will run the sequence of aminoacids to search for mutations from consensus B HIV
 
     5m46.501s
 
-
     [user@desktop]$ sh bin/HIV1predict.sh -i consensus.fasta -o consensus
     Apps' directories OK.
 
