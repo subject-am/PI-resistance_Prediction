@@ -10,12 +10,12 @@ echo "    > Consensus HIV-1 PR (subtype B)" >> usage.help
 echo "    PQITLWQRPLVTIKIGGQLKEALLDTGADDTVLEEMNLPGRWKPKMIGGIGGFIKVRQYDQILIEICGHKAIGTVLVGPTPVNIIGRNLLTQIGCTLNF" >> usage.help
 echo >> usage.help
 echo "          sh HIV1predict.sh [HELP]" >> usage.help
-echo "          sh HIV1predict.sh [IN] <FASTA file> [PDB] [ARG1] .. [MUTN] [ARGN] [OUT] <output file>" >> usage.help
+echo "          sh HIV1predict.sh [IN] <FASTA file> [PDB] [ARG] [OUT] <output file>" >> usage.help
 echo >> usage.help
 echo "    [HELP]     -h    shows this help text" >> usage.help
 echo "    [IN]       -i    input filename (FASTA format; one sequence only)" >> usage.help
 echo "    [PDB]      -p    input own PDB file instead of 1NH0_ref; optional" >> usage.help 
-echo "    [ARGS1..]        ex. for -p: '3DJK' ; ex. for -a: 'E35E_T'" >> usage.help
+echo "    [ARG]      		  ex. for -p: '3DJK' >> usage.help
 echo "    [OUT]      -o    output filename (outputs PDB format)" >> usage.help
 echo >> usage.help
 echo "    Examples:" >> usage.help
