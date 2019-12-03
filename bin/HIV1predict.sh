@@ -107,7 +107,7 @@ sed -i '2,$d' $inpf && cat seq.tmp >> $inpf
 if [[ $pdbf != 1NH0_ref.pdb ]]
 then
 	ref=${pdbf%%.pdb}_ref.pdb
-	sh "${DIR}"/pattern2consensus.sh >> build_ref.log
+	sh "${DIR}"/mutations-consensus.sh >> build_ref.log
 	sh "${DIR}"/pattern-HIVp.sh $pdbf ref_pattern >> build_ref.log
 	mv *_ref_pattern/$(ls *_ref_pattern/ --sort=time | head -n 1) $ref
 	rm -r *_ref_pattern/ ref_pattern
