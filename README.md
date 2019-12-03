@@ -2,11 +2,11 @@
 ## Requirements
 This project was developed to run on Linux Bash shell.
 To run `HIV1predict.sh` as is, the following need to be previously installed:
- - Modeller   https://salilab.org/modeller/download_installation.html
- - Reduce     http://kinemage.biochem.duke.edu/software/reduce.php
- - Gromacs    http://manual.gromacs.org/documentation/
- - LovoAlign  https://www.ime.unicamp.br/~martinez/lovoalign/software.html
- - IsoMIF     https://github.com/mtthchrtr/IsoMif
+ - Modeller     https://salilab.org/modeller/download_installation.html
+ - Reduce       http://kinemage.biochem.duke.edu/software/reduce.php
+ - Gromacs      http://manual.gromacs.org/documentation/
+ - LovoAlign    https://www.ime.unicamp.br/~martinez/lovoalign/software.html
+ - IsoMIF       https://github.com/mtthchrtr/IsoMif
 
 To run this in Windows, consider enabling Linux Subsystem for Linux and install Bash shell on Windows.
 
