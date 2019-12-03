@@ -46,3 +46,7 @@ pattern-HIVp.sh
 pattern2consensus.sh
 
         Creates the mutation pattern files from consensus B HIV-1 protease.
+	
+ref_pattern.sh
+
+	Runs the commands specified in the section above to create the reference structure.
