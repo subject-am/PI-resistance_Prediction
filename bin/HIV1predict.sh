@@ -19,9 +19,9 @@ echo "    [ARGS1..]        ex. for -p: '3DJK' ; ex. for -a: 'E35E_T'" >> usage.h
 echo "    [OUT]      -o    output filename (outputs PDB format)" >> usage.help
 echo >> usage.help
 echo "    Examples:" >> usage.help
-echo "          ./test.sh -p 3DJK -o output.pdb -i input.fasta" >> usage.help
-echo "          sh test.sh -i test -p 1NH0_ref -o test" >> usage.help
-echo "          sh test.sh -i test.fasta -o test_output.pdb" >> usage.help
+echo "          ./HIV1predict.sh -p 3DJK -o output.pdb -i input.fasta" >> usage.help
+echo "          sh HIV1predict.sh -i test -p 1NH0_ref -o test" >> usage.help
+echo "          sh HIV1predict.sh -i test.fasta -o test_output.pdb" >> usage.help
 
 usage=$(cat usage.help)
 
