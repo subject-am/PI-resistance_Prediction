@@ -9,8 +9,8 @@ echo "    Example of FASTA file:" >> usage.help
 echo "    > Consensus HIV-1 PR (subtype B)" >> usage.help
 echo "    PQITLWQRPLVTIKIGGQLKEALLDTGADDTVLEEMNLPGRWKPKMIGGIGGFIKVRQYDQILIEICGHKAIGTVLVGPTPVNIIGRNLLTQIGCTLNF" >> usage.help
 echo >> usage.help
-echo "          sh test.sh [HELP]" >> usage.help
-echo "          sh test.sh [IN] <FASTA file> [PDB] [ARG1] .. [MUTN] [ARGN] [OUT] <output file>" >> usage.help
+echo "          sh HIV1predict.sh [HELP]" >> usage.help
+echo "          sh HIV1predict.sh [IN] <FASTA file> [PDB] [ARG1] .. [MUTN] [ARGN] [OUT] <output file>" >> usage.help
 echo >> usage.help
 echo "    [HELP]     -h    shows this help text" >> usage.help
 echo "    [IN]       -i    input filename (FASTA format; one sequence only)" >> usage.help
