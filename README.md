@@ -45,8 +45,41 @@ Using an aminoacid FASTA file with just the sequence for the monomer of HIV-1 pr
 
     HIV1predict -i <input>.fasta -o <output>.pdb
 
-will run the sequence of aminoacids to search for mutations from consensus B HIV-1 protease, model it, and compare the MIFs of both mutated model and reference, to classify it as susceptible or resistant.
+will run the sequence of aminoacids to search for mutations from consensus B HIV-1 protease, model it, and compare the MIFs of both mutated model and reference, to classify it as susceptible or resistant in _stdout_. Below are the examples of the screen output for the FASTA files in `examples/`:
+
+    [user@desktop]$ sh bin/HIV1predict.sh -i 99mut.fasta -o 99mut
+    Apps' directories OK.
+
+    Structural model finished.
+
+    Starting IsoMIF...
+
+    IsoMIF calculated.
+
+    Your 99mut.fasta has a dissimilarity of 0.9170 compared to
+    the susceptible reference.
+    This sequence is likely resistant to most PIs.
+
+    5m46.501s
+
+
+    [user@desktop]$ sh bin/HIV1predict.sh -i consensus.fasta -o consensus
+    Apps' directories OK.
+
+    Structural model finished.
+
+    Starting IsoMIF...
+
+    IsoMIF calculated.
+
+    Your consensus.fasta has a dissimilarity of 0.0057 compared to
+    the susceptible reference.
+    This sequence is likely susceptible to most PIs.
+
+    0m31.679s
+
 If the input file is in multi-FASTA format, the script will separate the sequences in multiple FASTA files and exit. Run again for each of the new FASTA files created. If the sequence of aminoacids is not in one line, the script will create a new file with the sequence in one line and run normally.
+
 
 Optionally, the user may want to choose their own template:
 
@@ -67,4 +100,6 @@ All of these can be run alone. Other two scripts in `bin/` are not necessary, bu
   - `mutate.sh`: mutates a FASTA sequence (deals with FASTA as mentioned above).
   - `isomif_summary.sh`: summarises all Tanimotos resulting from IsoMIF.
 
+
 ### examples/
+Examples of the folders and files created when running `HIV1predict.sh` for **99mut.fasta** and **consensus.fasta**.
