@@ -26,10 +26,10 @@ MutModels.sh
 
         Will model all the files, performing the necessary mutations to the consensus reference structure.
         
-mutate-model.py
+mutate_model.py
 
         Retrieved from Modeller Wiki (https://salilab.org/modeller/wiki/Mutate%20model).
-        Performs single-point substitution mutations on a PDB model.
+        Performs single-point substitution mutations and local minimization on a PDB model.
         
 substitution-HIVp.sh
 
