@@ -8,7 +8,7 @@
 #
 #  Loops the script substitution-HIVp.sh through all the mutations found in
 #  the pattern file, to substitute them in the PDB structure found in
-#  the present directory and mutates for the indicated substitution in the.
+#  the present directory.
 #
 #     Example:   sh pattern-HIVp.sh 1NH0.pdb pattern01
 #                    keeps intermediary files of the mutation pattern applied to 1NH0.pdb
