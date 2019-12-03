@@ -47,7 +47,7 @@ Using an aminoacid FASTA file with just the sequence for the monomer of HIV-1 pr
 
 will run the sequence of aminoacids to search for mutations from consensus B HIV-1 protease, model it, and compare the MIFs of both mutated model and reference, to classify it as susceptible or resistant in _stdout_. Below are the examples of the screen output for the FASTA files in `examples/`:
 
-    [user@desktop]$ sh bin/HIV1predict.sh -i 99mut.fasta -o 99mut
+    [user@examples]$ sh bin/HIV1predict.sh -i 99mut.fasta -o 99mut
     Apps' directories OK.
 
     Structural model finished.
@@ -62,7 +62,7 @@ will run the sequence of aminoacids to search for mutations from consensus B HIV
 
     5m46.501s
 
-    [user@desktop]$ sh bin/HIV1predict.sh -i consensus.fasta -o consensus
+    [user@examples]$ sh bin/HIV1predict.sh -i consensus.fasta -o consensus
     Apps' directories OK.
 
     Structural model finished.
