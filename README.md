@@ -39,7 +39,7 @@ and, if necessary, change the path for Python/Modeller on `bin/substitution-HIVp
 ## Running HIV1predict.sh
 For ease of use, create an alias on .bashrc, .bash_profile, or .profile, or add it to $PATH.
 
-    alias HIVpredict='<install directory>/PI-resistance_Prediction/bin/HIV1predict.sh'
+    alias HIV1predict='<install directory>/PI-resistance_Prediction/bin/HIV1predict.sh'
 
 Using an aminoacid FASTA file with just the sequence for the monomer of HIV-1 protease:
 
