@@ -2,7 +2,7 @@
 ## Scripts
 ref_process.sh
 
-    Adds hydrogens, centers, runs GetCleft(), and calculates MIFs for the reference.
+    Adds hydrogens, runs GetCleft(), and calculates MIFs for the reference.
   
 struct_process.sh
 
