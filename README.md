@@ -25,7 +25,6 @@ Update the directories for Reduce, Gromacs, LovoAlign, and Isomif on `bin/HIV1pr
 
     #### Folders where you can find the apps' scripts
     reducedir=/applic/reduce/reduce-3.23
-    gmxdir=/applic/gromacs/gromacs-2016.4/bin 
     isomifdir=/applic/IsoMif/IsoMif_150311
     lovodir=/applic/lovoalign/lovoalign-16.342/bin
 
