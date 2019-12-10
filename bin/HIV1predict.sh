@@ -14,7 +14,8 @@ echo "          sh HIV1predict.sh [IN] <FASTA file> [PDB] [ARG] [OUT] <output fi
 echo >> usage.help
 echo "    [HELP]     -h    shows this help text" >> usage.help
 echo "    [IN]       -i    input filename (FASTA format; one sequence only)" >> usage.help
-echo "    [PDB]      -p    input own PDB file instead of 1NH0_ref; optional" >> usage.help 
+echo "    [PDB]      -p    input own PDB file instead of 1NH0_ref; optional" >> usage.help
+echo "                     (assumes that the HIV-1 protease monomer is in chain A)" >> usage.help 
 echo "    [ARG]      		  ex. for -p: '3DJK' >> usage.help
 echo "    [OUT]      -o    output filename (outputs PDB format)" >> usage.help
 echo >> usage.help
@@ -106,10 +107,22 @@ sed -i '2,$d' $inpf && cat seq.tmp >> $inpf
 if [[ $pdbf != 1NH0_ref.pdb ]]
 then
 	ref=${pdbf%%.pdb}_ref.pdb
+	mkdir refTMP ; cd refTMP/
+	cp ../$pdbf .
+	echo ">"${pdbf%.pdb} > ref.fasta
+#### PDB to FASTA
+		awk '/^ATOM/ && $3 == "CA" && $5 == "A" {print $4}' $pdbf > ref.tmp
+	while read aa
+	do
+		if [[ ${#aa} -gt 3 ]] ; then if [[ ${aa:0:1} == "A" ]] ; then echo ${aa:1} >> ref-fasta.tmp ; fi
+		else echo $aa >> ref-fasta.tmp ; fi
+	done < ref.tmp
+	cat ref-fasta.tmp | tr '\n' ' ' | sed 's/ALA/A/g;s/CYS/C/g;s/ASP/D/g;s/GLU/E/g;s/PHE/F/g;s/GLY/G/g;s/HIS/H/g;s/ILE/I/g;s/LYS/K/g;s/LEU/L/g;s/MET/M/g;s/ASN/N/g;s/PRO/P/g;s/GLN/Q/g;s/ARG/R/g;s/SER/S/g;s/THR/T/g;s/VAL/V/g;s/TRP/W/g;s/TYR/Y/g' | sed 's/ //g' >> ref.fasta
+	echo >> ref.fasta
 	sh "${DIR}"/mutations-consensus.sh >> build_ref.log
 	sh "${DIR}"/pattern-HIVp.sh $pdbf ref_pattern >> build_ref.log
-	mv *_ref_pattern/$(ls *_ref_pattern/ --sort=time | head -n 1) $ref
-	rm -r *_ref_pattern/ ref_pattern
+	mv *_ref_pattern/$(ls *_ref_pattern/ --sort=time | head -n 1) ../$ref
+	cd .. ; rm -r refTMP/
 	echo "    Reference model finished."
 	echo
 fi
