@@ -110,8 +110,8 @@ then
 	mkdir refTMP ; cd refTMP/
 	cp ../$pdbf .
 	echo ">"${pdbf%.pdb} > ref.fasta
-#### PDB to FASTA
-		awk '/^ATOM/ && $3 == "CA" && $5 == "A" {print $4}' $pdbf > ref.tmp
+	# Get PDB to FASTA
+	awk '/^ATOM/ && $3 == "CA" && $5 == "A" {print $4}' $pdbf > ref.tmp
 	while read aa
 	do
 		if [[ ${#aa} -gt 3 ]] ; then if [[ ${aa:0:1} == "A" ]] ; then echo ${aa:1} >> ref-fasta.tmp ; fi
