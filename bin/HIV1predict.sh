@@ -132,7 +132,6 @@ echo -n "    Starting IsoMIF...     "
 while [ ! -f isomif_models/*.isomif ] ; do printf "\b${spinnerloop:spinner++%${#spinnerloop}:1}" ; sleep 0.3 ; done &
 mkdir isomif_ref && cd isomif_ref
 ${reducedir}/reduce ../$ref > ${ref%%.pdb}_H.pdb 2>> mif_ref.log	# add H
-${gmxdir}/gmx editconf -f ${ref%%.pdb}_H.pdb -o ${ref%%.pdb}_final.pdb -center 0 0 0 &>> mif_ref.log 	# center coordinates
 ${isomifdir}/getcleft_linux_x86_64 -p ${ref%%.pdb}_final.pdb -s -t 1 -k 1 -o ${ref%%.pdb}_final &>> mif_ref.log 	# getCleft
 ${isomifdir}/mif_linux_x86_64 -p ${ref%%.pdb}_final.pdb -g ${ref%%.pdb}_final_sph_1.pdb -t ${ref%%.pdb}_final &>> mif_ref.log  # obtain MIFs for the chosen cleft
 cd ..
