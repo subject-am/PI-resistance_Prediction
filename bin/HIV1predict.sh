@@ -3,7 +3,7 @@
 echo > usage.help
 echo "    This script runs the workflow. Use FASTA for the monomer of" >> usage.help
 echo "    HIV-1 protease (subtype B) in one line." >> usage.help
-echo "    The script needs Python/Modeller, Reduce, GROMACS, Lovoalign, and IsoMIF to work." >> usage.help
+echo "    The script needs Python/Modeller, Reduce, Lovoalign, and IsoMIF to work." >> usage.help
 echo >> usage.help
 echo "    Example of FASTA file:" >> usage.help
 echo "    > Consensus HIV-1 PR (subtype B)" >> usage.help
@@ -43,7 +43,6 @@ spinner=1 ; spinnerloop="/-\|" ; echo -n ' '
 
 #### Folders where you can find the apps' scripts
 reducedir=/applic/reduce/reduce-3.23
-gmxdir=/applic/gromacs/gromacs-2016.4/bin 
 isomifdir=/applic/IsoMif/IsoMif_150311
 lovodir=/applic/lovoalign/lovoalign-16.342/bin
 
