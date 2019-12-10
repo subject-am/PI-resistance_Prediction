@@ -81,7 +81,12 @@ If the input file is in multi-FASTA format, the script will separate the sequenc
 Optionally, the user may want to choose their own template:
 
     HIV1predict -i <input>.fasta -p <template>.pdb -o <output>.pdb
-    
+
+However, the script always retrieves the HIV-1 protease FASTA from chain A. If you need to change this, edit the following line in `HIV1predict.sh` and change the `$5 == "A"` to the correct chain instead of "A":
+
+    #Get PDB to FASTA
+    awk '/^ATOM/ && $3 == "CA" && $5 == "A" {print $4}' $pdbf > ref.tmp
+
 For help:
 
     HIV1predict -h
