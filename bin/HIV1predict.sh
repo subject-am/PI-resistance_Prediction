@@ -10,13 +10,12 @@ echo "    > Consensus HIV-1 PR (subtype B)" >> usage.help
 echo "    PQITLWQRPLVTIKIGGQLKEALLDTGADDTVLEEMNLPGRWKPKMIGGIGGFIKVRQYDQILIEICGHKAIGTVLVGPTPVNIIGRNLLTQIGCTLNF" >> usage.help
 echo >> usage.help
 echo "          sh HIV1predict.sh [HELP]" >> usage.help
-echo "          sh HIV1predict.sh [IN] <FASTA file> [PDB] [ARG] [OUT] <output file>" >> usage.help
+echo "          sh HIV1predict.sh [IN] <FASTA file> [PDB] <PDB file> [OUT] <output file>" >> usage.help
 echo >> usage.help
 echo "    [HELP]     -h    shows this help text" >> usage.help
 echo "    [IN]       -i    input filename (FASTA format; one sequence only)" >> usage.help
 echo "    [PDB]      -p    input own PDB file instead of 1NH0_ref; optional" >> usage.help
 echo "                     (assumes that the HIV-1 protease monomer is in chain A)" >> usage.help 
-echo "    [ARG]      		  ex. for -p: '3DJK' >> usage.help
 echo "    [OUT]      -o    output filename (outputs PDB format)" >> usage.help
 echo >> usage.help
 echo "    Examples:" >> usage.help
@@ -49,7 +48,7 @@ lovodir=/applic/lovoalign/lovoalign-16.342/bin
 
 #### Check apps
 if [[ -z $reducedir ]] ; then echo "Check Reduce directory" && rm usage.help && exit 1
-elif [[ -z $gmxdir ]] ; then echo "Check GROMACS directory" && rm usage.help && exit 1
+elif [[ -z $lovodir ]] ; then echo "Check LovoAlign directory" && rm usage.help && exit 1
 elif [[ -z $isomifdir ]] ; then echo "Check IsoMIF directory" && rm usage.help && exit 1
 else echo "Directories OK."
 echo
