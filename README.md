@@ -4,6 +4,7 @@ This project was developed to run on Linux Bash shell.
 To run `HIV1predict.sh` as is, the following need to be previously installed:
  - Modeller:     https://salilab.org/modeller/download_installation.html
  - Reduce:       http://kinemage.biochem.duke.edu/software/reduce.php
+ - VMD:          https://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=VMD
  - LovoAlign:    https://www.ime.unicamp.br/~martinez/lovoalign/software.html
  - IsoMIF:       https://github.com/mtthchrtr/IsoMif
 
@@ -25,6 +26,7 @@ Update the directories for Reduce, Gromacs, LovoAlign, and Isomif on `bin/HIV1pr
 
     #### Folders where you can find the apps' scripts
     reducedir=/applic/reduce/reduce-3.23
+    vmddir=/applic/VMD/vmd-1.9.3/bin
     isomifdir=/applic/IsoMif/IsoMif_150311
     lovodir=/applic/lovoalign/lovoalign-16.342/bin
 
