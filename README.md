@@ -4,7 +4,7 @@ This project was developed to run on Linux Bash shell.
 To run `HIV1predict.sh` as is, the following need to be previously installed:
  - Modeller:     https://salilab.org/modeller/download_installation.html
  - Reduce:       http://kinemage.biochem.duke.edu/software/reduce.php
- - VMD:          https://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=VMD
+ - VMD:          https://www.ks.uiuc.edu/Research/vmd/vmd-1.9.3/
  - LovoAlign:    https://www.ime.unicamp.br/~martinez/lovoalign/software.html
  - IsoMIF:       https://github.com/mtthchrtr/IsoMif
 
