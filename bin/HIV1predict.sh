@@ -3,7 +3,7 @@
 echo > usage.help
 echo "    This script runs the workflow. Use FASTA for the monomer of" >> usage.help
 echo "    HIV-1 protease (subtype B) in one line." >> usage.help
-echo "    The script needs Python/Modeller, Reduce, Lovoalign, and IsoMIF to work." >> usage.help
+echo "    The script needs Python/Modeller, Reduce, VMD, Lovoalign, and IsoMIF to work." >> usage.help
 echo >> usage.help
 echo "    Example of FASTA file:" >> usage.help
 echo "    > Consensus HIV-1 PR (subtype B)" >> usage.help
@@ -26,7 +26,7 @@ echo "          sh HIV1predict.sh -i test.fasta -o test_output.pdb" >> usage.hel
 usage=$(cat usage.help)
 
 #### Get info from options selected
-while getopts i:o:ph option
+while getopts i:o:p:h option
 do
   	case "${option,,}" in
                 i) inp=${OPTARG%.fasta};;
@@ -43,11 +43,13 @@ spinner=1 ; spinnerloop="/-\|" ; echo -n ' '
 
 #### Folders where you can find the apps' scripts
 reducedir=/applic/reduce/reduce-3.23
+vmddir=/applic/VMD/vmd-1.9.3/bin
 isomifdir=/applic/IsoMif/IsoMif_150311
 lovodir=/applic/lovoalign/lovoalign-16.342/bin
 
 #### Check apps
 if [[ -z $reducedir ]] ; then echo "Check Reduce directory" && rm usage.help && exit 1
+elif [[ -z $vmddir ]] ; then echo "Check VMD directory" && rm usage.help && exit 1
 elif [[ -z $lovodir ]] ; then echo "Check LovoAlign directory" && rm usage.help && exit 1
 elif [[ -z $isomifdir ]] ; then echo "Check IsoMIF directory" && rm usage.help && exit 1
 else echo "Directories OK."
@@ -143,19 +145,31 @@ echo -n "    Starting IsoMIF...     "
 while [ ! -f isomif_models/*.isomif ] ; do printf "\b${spinnerloop:spinner++%${#spinnerloop}:1}" ; sleep 0.3 ; done &
 mkdir isomif_ref && cd isomif_ref
 ${reducedir}/reduce ../$ref > ${ref%%.pdb}_H.pdb 2>> mif_ref.log	# add H
-${isomifdir}/getcleft_linux_x86_64 -p ${ref%%.pdb}_H.pdb -s -t 1 -k 1 -o ${ref%%.pdb}_final &>> mif_ref.log 	# getCleft
-${isomifdir}/mif_linux_x86_64 -p ${ref%%.pdb}_H.pdb -g ${ref%%.pdb}_final_sph_1.pdb -t ${ref%%.pdb}_final &>> mif_ref.log  # obtain MIFs for the chosen cleft
+        #### VMD - write centreref.tmp
+echo 'set pdb [lindex $argv 0]' > centreref.tmp
+echo 'set out [lindex $argv 1]' >> centreref.tmp
+echo 'mol new $pdb' >> centreref.tmp
+echo 'set A [atomselect top all]' >> centreref.tmp
+echo 'set minus_com [vecsub {0.0 0.0 0.0} [measure center $A]]' >> centreref.tmp
+echo '$A moveby $minus_com' >> centreref.tmp
+echo '$A writepdb $out' >> centreref.tmp
+echo 'quit' >> centreref.tmp
+        ####
+${vmddir}/vmd -dispdev none -e centreref.tmp -args ${ref%%.pdb}_H.pdb ${ref%%.pdb}_final.pdb &>> mif_ref.log
+${isomifdir}/getcleft_linux_x86_64 -p ${ref%%.pdb}_final.pdb -s -t 1 -k 1 -o ${ref%%.pdb}_final &>> mif_ref.log 	# getCleft
+${isomifdir}/mif_linux_x86_64 -p ${ref%%.pdb}_final.pdb -g ${ref%%.pdb}_final_sph_1.pdb -t ${ref%%.pdb}_final &>> mif_ref.log  # obtain MIFs for the chosen cleft
 perl ${isomifdir}/mifView.pl -m *.mif -o ./	# file for PyMol
 # hydrophobic - cyan	aromatic - orange
 # Hbond donor - blue	Hbond acceptor - red
 # (+) charge - green	(-) charge - magenta
+rm centreref.tmp
 cd ..
 
 #### IsoMIF
 mkdir isomif_models && cd isomif_models
 referencedir=../isomif_ref
 ${reducedir}/reduce ../${outf%%.pdb}.pdb > ${outf%%.pdb}_H.pdb 2>> mif_models.log # add H
-${lovodir}/lovoalign -p1 ${outf%%.pdb}_H.pdb -p2 ${referencedir}/${ref%%.pdb}_H.pdb -o ${outf%%.pdb}_final.pdb &>> mif_models.log	# align model and reference
+${lovodir}/lovoalign -p1 ${outf%%.pdb}_H.pdb -p2 ${referencedir}/${ref%%.pdb}_final.pdb -o ${outf%%.pdb}_final.pdb &>> mif_models.log	# align model and reference
 ${isomifdir}/mif_linux_x86_64 -p ${outf%%.pdb}_final.pdb -g ${referencedir}/*_final_sph_1.pdb -t ${outf%%.pdb}_mif &>> mif_models.log
 ${isomifdir}/isomif_linux_x86_64 -p1 ${referencedir}/*_final.mif -p2 ${outf%%.pdb}_mif.mif -s 1 -c 1 -d 1.0 -w -o grid1_d10_ &>> isomif.log
 perl ${isomifdir}/mifView.pl -m *.mif -o ./	# file for PyMol
