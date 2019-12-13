@@ -143,17 +143,26 @@ echo -n "    Starting IsoMIF...     "
 while [ ! -f isomif_models/*.isomif ] ; do printf "\b${spinnerloop:spinner++%${#spinnerloop}:1}" ; sleep 0.3 ; done &
 mkdir isomif_ref && cd isomif_ref
 ${reducedir}/reduce ../$ref > ${ref%%.pdb}_H.pdb 2>> mif_ref.log	# add H
-${isomifdir}/getcleft_linux_x86_64 -p ${ref%%.pdb}_final.pdb -s -t 1 -k 1 -o ${ref%%.pdb}_final &>> mif_ref.log 	# getCleft
-${isomifdir}/mif_linux_x86_64 -p ${ref%%.pdb}_final.pdb -g ${ref%%.pdb}_final_sph_1.pdb -t ${ref%%.pdb}_final &>> mif_ref.log  # obtain MIFs for the chosen cleft
+${isomifdir}/getcleft_linux_x86_64 -p ${ref%%.pdb}_H.pdb -s -t 1 -k 1 -o ${ref%%.pdb}_final &>> mif_ref.log 	# getCleft
+${isomifdir}/mif_linux_x86_64 -p ${ref%%.pdb}_H.pdb -g ${ref%%.pdb}_final_sph_1.pdb -t ${ref%%.pdb}_final &>> mif_ref.log  # obtain MIFs for the chosen cleft
+perl ${isomifdir}/mifView.pl -m *.mif -o ./	# file for PyMol
+# hydrophobic - cyan	aromatic - orange
+# Hbond donor - blue	Hbond acceptor - red
+# (+) charge - green	(-) charge - magenta
 cd ..
 
 #### IsoMIF
 mkdir isomif_models && cd isomif_models
 referencedir=../isomif_ref
 ${reducedir}/reduce ../${outf%%.pdb}.pdb > ${outf%%.pdb}_H.pdb 2>> mif_models.log # add H
-${lovodir}/lovoalign -p1 ${outf%%.pdb}_H.pdb -p2 ${referencedir}/1NH0_ref_final.pdb -o ${outf%%.pdb}_final.pdb &>> mif_models.log	# align model and reference
+${lovodir}/lovoalign -p1 ${outf%%.pdb}_H.pdb -p2 ${referencedir}/${ref%%.pdb}_H.pdb -o ${outf%%.pdb}_final.pdb &>> mif_models.log	# align model and reference
 ${isomifdir}/mif_linux_x86_64 -p ${outf%%.pdb}_final.pdb -g ${referencedir}/*_final_sph_1.pdb -t ${outf%%.pdb}_mif &>> mif_models.log
-$isomifdir/isomif_linux_x86_64 -p1 ${referencedir}/*_final.mif -p2 ${outf%%.pdb}_mif.mif -s 1 -c 1 -d 1.0 -w -o grid1_d10_ &>> isomif.log
+${isomifdir}/isomif_linux_x86_64 -p1 ${referencedir}/*_final.mif -p2 ${outf%%.pdb}_mif.mif -s 1 -c 1 -d 1.0 -w -o grid1_d10_ &>> isomif.log
+perl ${isomifdir}/mifView.pl -m *.mif -o ./	# file for PyMol
+perl ${isomifdir}/isoMifView.pl -m *.isomif -o ./ -g 1	# file for PyMol
+# hydrophobic - cyan	aromatic - orange
+# Hbond donor - blue	Hbond acceptor - red
+# (+) charge - green	(-) charge - magenta
 cd ..
 echo
 echo "    IsoMIF calculated."
@@ -161,7 +170,7 @@ echo
 
 #### Resistant? Susceptible?
 isomif=$(ls isomif_models/*.isomif)
-alltanimoto=$(grep TANI $isomif | tr " " "\n" | grep TANI -n | awk -F ":" '{print $1}')
+alltanimoto=$(grep TANI $isomif | tr -s " " "\n" | grep TANI -n | awk -F ":" '{print $1}')
 for coln in $alltanimoto
 do
 	tcol=$(grep TANI $isomif | awk '{print $'$coln'}')
@@ -169,7 +178,7 @@ do
 done
 disscoef=$(awk -v n1=1 -v n2=$tani -v OFMT="%.4f" 'BEGIN{print n1-n2}')
 
-if [[ $disscoef > 0.0600 ]] ; then result=resistant ; else result=susceptible ; fi
+if [[ $disscoef > 0.0603 ]] ; then result=resistant ; else result=susceptible ; fi
 echo "    Your "$inpf" has a dissimilarity of "$disscoef" compared to"
 echo "    the susceptible reference."
 echo "    This sequence is likely "$result" to most PIs."
