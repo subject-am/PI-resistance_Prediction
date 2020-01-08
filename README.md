@@ -8,7 +8,7 @@ To run `HIV1predict.sh` as is, the following need to be previously installed:
  - LovoAlign:    https://www.ime.unicamp.br/~martinez/lovoalign/software.html
  - IsoMIF:       https://github.com/mtthchrtr/IsoMif
 
-To run this in Windows, consider enabling Linux Subsystem for Linux and install Bash shell on Windows.
+To run this in Windows, consider enabling Windows Subsystem for Linux and install Bash shell on Windows.
 
 ## Installing HIV1predict.sh
 Clone the repository:
