@@ -120,7 +120,7 @@ then
 	done < ref.tmp
 	cat ref-fasta.tmp | tr '\n' ' ' | sed 's/ALA/A/g;s/CYS/C/g;s/ASP/D/g;s/GLU/E/g;s/PHE/F/g;s/GLY/G/g;s/HIS/H/g;s/ILE/I/g;s/LYS/K/g;s/LEU/L/g;s/MET/M/g;s/ASN/N/g;s/PRO/P/g;s/GLN/Q/g;s/ARG/R/g;s/SER/S/g;s/THR/T/g;s/VAL/V/g;s/TRP/W/g;s/TYR/Y/g' | sed 's/ //g' >> ref.fasta
 	echo >> ref.fasta
-	sh "${DIR}"/mutations-consensus.sh >> build_ref.log
+	sh "${DIR}"/pattern2consensus.sh >> build_ref.log
 	sh "${DIR}"/pattern-HIVp.sh $pdbf ref_pattern >> build_ref.log
 	mv *_ref_pattern/$(ls *_ref_pattern/ --sort=time | head -n 1) ../$ref
 	cd .. ; rm -r refTMP/
